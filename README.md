@@ -2,7 +2,7 @@
 
 ### Build and run:
 ```console
-pip install Adafruit-DHT
-nimble build
-./rpi_sensors
+$ pip install Adafruit-DHT
+$ nimble build
+$ ./rpi_sensors
 ```
