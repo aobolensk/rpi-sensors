@@ -1,13 +1,12 @@
 import os
-import nimpy
 
-let Adafruit_DHT = pyImport("Adafruit_DHT")
+import dht22
 
 proc main =
   while true:
-    let device = Adafruit_DHT.DHT22
-    let sensors = Adafruit_DHT.read_retry(device, 4)
-    echo "Temperature: ", sensors[0], ", humidity: ", sensors[1]
+    let sensor = dht22(4)
+    let data = sensor.get()
+    echo "Temperature: ", data[0], ", humidity: ", data[1]
     os.sleep(1000)
 
 
