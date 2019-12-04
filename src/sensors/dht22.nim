@@ -1,4 +1,3 @@
-import json
 import nimpy
 import strutils
 from sequtils import map
