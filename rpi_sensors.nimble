@@ -4,7 +4,7 @@ author        = "gooddoog"
 description   = "Sensor management application for Raspberry Pi"
 license       = "MIT"
 srcDir        = "src"
-bin           = @["rpi_sensors", "server"]
+bin           = @["main", "server"]
 
 # Dependencies
 requires "nim >= 1.0.0"

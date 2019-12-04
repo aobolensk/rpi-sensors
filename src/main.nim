@@ -1,6 +1,6 @@
 import os
 
-import dht22
+import sensors/dht22
 
 proc main =
   while true:

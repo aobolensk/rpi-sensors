@@ -1,5 +1,5 @@
 import asynchttpserver, asyncdispatch
-import dht22
+import sensors/dht22
 
 let sensor = dht22(4)
 
