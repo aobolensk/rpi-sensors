@@ -4,6 +4,7 @@
 
 ### Build and run:
 ```console
+$ sudo apt-get install wiringpi
 $ pip install Adafruit-DHT
 $ nimble build
 $ ./rpi_sensors
