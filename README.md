@@ -4,7 +4,8 @@
 
 ### Build and run:
 ```console
-$ pip install Adafruit-DHT
+$ python -m pip install Adafruit-DHT
 $ nimble build
-$ ./rpi_sensors
+$ ./main        # Launch console application
+$ ./server      # Launch web server
 ```
