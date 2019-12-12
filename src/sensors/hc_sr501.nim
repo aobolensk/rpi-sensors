@@ -12,3 +12,4 @@ proc hc_sr501*(pin: cint): HCSR501Sensor =
 proc get*(this: HCSR501Sensor): int =
   enablePin(this.pin)
   result = digitalReadPin(this.pin)
+  disablePin(this.pin)
