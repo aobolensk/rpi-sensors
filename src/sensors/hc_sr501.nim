@@ -1,6 +1,3 @@
-import osproc
-import strutils
-
 import ../gpio
 
 type HCSR501Sensor* = object
