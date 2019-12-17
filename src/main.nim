@@ -29,9 +29,9 @@ proc main =
         let sensor = mh_rd(24)
         let data = sensor.get()
         if data > 0:
-          echo "[MH-RD] Rain is not detected"
+          echo "[MH-RD] Water is not detected"
         else:
-          echo "[MH-RD] Rain is detected"
+          echo "[MH-RD] Water is detected"
       else:
         echo "Unknown sensor"
     sleep(500)

@@ -25,9 +25,9 @@ proc serveRequest(req: Request) {.async.} =
       let sensor = mh_rd(24)
       let data = sensor.get()
       if data > 0:
-        response &= "[MH-RD] Rain is not detected\n"
+        response &= "[MH-RD] Water is not detected\n"
       else:
-        response &= "[MH-RD] Rain is detected\n"
+        response &= "[MH-RD] Water is detected\n"
     await req.respond(Http200, response)
   else:
     await req.respond(Http404, "Not found")
