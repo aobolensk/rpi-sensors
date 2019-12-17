@@ -7,9 +7,9 @@ import sensors/mh_rd
 
 proc main =
   echo "Select connected sensor:"
-  echo "[1] DHT-22"
-  echo "[2] HC-SR501"
-  echo "[3] MH-RD"
+  echo "[1] DHT-22   < temperature sensor"
+  echo "[2] HC-SR501 < motion sensor"
+  echo "[3] MH-RD    < water sensor"
   stdout.write("> ")
   let s = readLine(stdin).split()
   while true:
