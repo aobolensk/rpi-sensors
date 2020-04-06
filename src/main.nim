@@ -1,3 +1,4 @@
+import math
 import os
 import strutils
 
@@ -17,7 +18,10 @@ proc main =
       if x == "1":
         let sensor = dht22(4)
         let data = sensor.get()
-        echo "[DHT-22] Temperature: ", data[0], ", humidity: ", data[1]
+        if data[0].classify == fcNan or data[1].classify == fcNan:
+          echo "[DHT-22] Could not retrieve temperature and humidity"
+        else:
+          echo "[DHT-22] Temperature: ", data[0], ", humidity: ", data[1]
       elif x == "2":
         let sensor = hc_sr501(17)
         let data = sensor.get()

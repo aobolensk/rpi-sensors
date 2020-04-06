@@ -12,4 +12,7 @@ proc dht22*(pin: int): DHT22Sensor =
 
 proc get*(this: DHT22Sensor): seq[float] =
   let s = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, this.pin)
-  result = ($s)[1..^2].split(", ").map(parseFloat)
+  try:
+    result = ($s)[1..^2].split(", ").map(parseFloat)
+  except ValueError:
+    result = @[NaN, NaN]
