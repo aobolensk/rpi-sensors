@@ -15,25 +15,15 @@ proc serveRequest(req: Request) {.async.} =
     block dht22:
       let sensor = dht22(4)
       {.gcsafe.}:
-        let data = sensor.get()
-      if data[0].classify == fcNan or data[1].classify == fcNan:
-        response &= "[DHT-22] Could not retrieve temperature and humidity\n"
-      else:
-        response &= fmt"[DHT-22] Temperature: {data[0]:.1f}, humidity: {data[1]:.1f}{'\n'}"
+        response &= sensor.getString() & '\n'
     block hc_sr501:
       let sensor = hc_sr501(17)
-      let data = sensor.get()
-      if data > 0:
-        response &= "[HC-SR501] Motion is detected\n"
-      else:
-        response &= "[HC-SR501] Motion is not detected\n"
+      {.gcsafe.}:
+        response &= sensor.getString() & '\n'
     block mh_rd:
       let sensor = mh_rd(24)
-      let data = sensor.get()
-      if data > 0:
-        response &= "[MH-RD] Water is not detected\n"
-      else:
-        response &= "[MH-RD] Water is detected\n"
+      {.gcsafe.}:
+        response &= sensor.getString() & '\n'
     await req.respond(Http200, response)
   else:
     await req.respond(Http404, "Not found")
