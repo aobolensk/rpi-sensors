@@ -1,4 +1,7 @@
-import asynchttpserver, asyncdispatch
+import asyncdispatch
+import asynchttpserver
+import math
+import strformat
 
 import sensors/dht22
 import sensors/hc_sr501
@@ -13,7 +16,10 @@ proc serveRequest(req: Request) {.async.} =
       let sensor = dht22(4)
       {.gcsafe.}:
         let data = sensor.get()
-      response &= "[DHT-22] Temperature: " & $(data[0]) & ", humidity: " & $(data[1]) & '\n'
+      if data[0].classify == fcNan or data[1].classify == fcNan:
+        response &= "[DHT-22] Could not retrieve temperature and humidity\n"
+      else:
+        response &= fmt"[DHT-22] Temperature: {data[0]:.1f}, humidity: {data[1]:.1f}{'\n'}"
     block hc_sr501:
       let sensor = hc_sr501(17)
       let data = sensor.get()
