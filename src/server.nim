@@ -1,7 +1,5 @@
 import asyncdispatch
 import asynchttpserver
-import math
-import strformat
 
 import sensors/dht22
 import sensors/hc_sr501
