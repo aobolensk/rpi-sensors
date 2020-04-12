@@ -25,6 +25,7 @@ proc main =
         echo sensor.getString()
       else:
         echo "Unknown sensor"
+        system.quit(1)
     sleep(500)
 
 when isMainModule:
